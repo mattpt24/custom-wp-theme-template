@@ -1,0 +1,75 @@
+/* 
+Theme Name: My Custom Theme
+Author: Matthew Persell-Thompson
+Description: This is a custom build WP Theme
+Version: 1.0
+*/
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects. */
+@media (prefers-reduced-motion) {
+  * {
+    scroll-behavior: none;
+  }
+}
+a:focus-visible,
+input:focus-visible,
+button:focus-visible {
+  border: solid 4px red !important;
+}
+
+body {
+  font-family: "Inter Tight", sans-serif;
+  line-height: 1.5;
+  background: white;
+}
+
+/* Only allow content to be seen by screen-readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.sr-only:focus {
+  height: auto;
+  width: auto;
+  padding: 1rem;
+  display: block;
+  clip: auto;
+  z-index: 999;
+  background-color: red;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  outline: none;
+  background: none;
+  border: none;
+}
+
+.width-container {
+  max-width: 1800px;
+  margin: 0 auto;
+}

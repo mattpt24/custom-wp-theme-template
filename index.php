@@ -3,9 +3,7 @@ get_header();
 ?>
 
 
-<!-- HERO -->
-<?php include "includes/hero.php" ?>
-<!--  -->
+<!-- CONTENT FOR HOME PAGE WILL GO HERE IF FRONT-PAGE.PHP IS NOT IN USE -->
 
 
 

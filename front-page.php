@@ -3,10 +3,8 @@ get_header();
 ?>
 
 
-<!-- HERO -->
-<?php include "includes/hero.php" ?>
-<!--  -->
 
+<!-- CONTENT FOR HOME PAGE GOES HERE -->
 
 
 <?php

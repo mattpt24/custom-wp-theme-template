@@ -37,7 +37,7 @@ Run following commands in theme directory to install all necessary packages & de
 
 1. npm init or npm init -y (Creates package.json)
 2. npm i
-3. npm audit fix --force (Fixes any packages that are are outdated)
+3. npm audit fix --force (To address all issues,including breaking changes)
 
 !! Only if error run !! 
 4. npm install laravel-mix --save-dev

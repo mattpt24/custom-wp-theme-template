@@ -18,3 +18,13 @@
    gap: $gap;
 }
 
+
+
+
+@mixin flex-center($gap) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: $gap;
+}

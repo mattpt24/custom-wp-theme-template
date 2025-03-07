@@ -9,18 +9,15 @@ Web Developer
 
 
 
-Setting up custom theme development environment ------------------------------------------------------------
 
+
+Setting up custom WordPress theme development environment ------------------------------------------------------------
 
 
 1. Download 'Local' to create local WP sites (localwp.com)
-
 2. Once site has been created, click on 'Go to site folder' button
-
 3. Clone this Github respository into the following location 'app/public/wp-content/themes' 
-
 4. Change the name of this folder from 'custom-wp-theme' to 'project-name-custom-theme' (optional)
-
 5. Open up folder in Text Editor
 
 
@@ -32,21 +29,20 @@ Setting up custom theme development environment --------------------------------
 
 
 
-///////////////////////////////////////////////////////////////////////////
-
 
 
 
 Run following commands in theme directory to install all necessary packages & dependencies  ------------------------------------------------------------
 
+
 1. npm init (Creates package.json)
 2. npm i
+3. npm audit fix --force (Fixes any packages that are are outdated)
 
-!! If error run !! 
-npm install laravel-mix --save-dev
-npm install webpack-livereload-plugin@1 --save-dev
-npm install -g sass
-
+!! Only if error run !! 
+4. npm install laravel-mix --save-dev
+5. npm install webpack-livereload-plugin@1 --save-dev
+6. npm install -g sass
 
 
 
@@ -54,9 +50,8 @@ npm install -g sass
 
 Run following commands in theme directory to start up dev environment ------------------------------------------------------------
 
-npx mix watch - Compile JS & SCSS files Automatically (Recommended!!!)
-npx mix - Will bring back styles.css & script.js files if deleted and compile manually
-
+* npx mix watch   - Compile JS & SCSS files Automatically (You'll need this!!!)
+* npx mix         - Will bring back styles.css & script.js files if deleted and compile manually
 
 
 
@@ -73,7 +68,7 @@ Live server set up  ------------------------------------------------------------
 7. Test by changing colour of something 
 
 
-- 
+
 
 
 Pulling live WP site to make changes locally ------------------------------------------------------------
@@ -87,7 +82,10 @@ Pulling live WP site to make changes locally -----------------------------------
 
 
 
+
+
 Things to note   ------------------------------------------------------------
+
 
 
 * Recurring plugins used :
@@ -103,11 +101,17 @@ Things to note   ------------------------------------------------------------
 
 * Creating new .js and .scss files: 
    - When creating .scss files make sure to import in the style.scss file    (eg. @import "./components/buttons";)
-   - When creating .js files make sure to import in script.js file           (eg. import "./article-filtration";)
+   - When creating .js files make sure to import in script.js file           (eg. import "./filtration/project-filtration";)
 
 
 
 
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -120,7 +124,14 @@ WordPress Theme Development Cheat Sheet  ----------------------------
 
 
 
+* WP Display Functions
 
+
+HEADER CONTENTS                                    ------   <?php echo get_header();?>
+
+FOOTER CONTENTS                                    ------   <?php echo get_footer();?>
+
+TEMPLATE PART                                      ------   <?php echo get_template_part('includes/components/page-title-banner')?>
 
 PAGE / POST TITLE                                  ------   <?php echo the_title();?>
 
@@ -145,24 +156,27 @@ POST SHORTCODE                                     ------   <?php echo do_shortc
 
 
 
-SINGLE POST PAGES
-
-single.php                                              -----  Created and used for individual 'post' pages
-
-single-{custom-post-type-name}.php                      -----  Created and used for individual pages for your custom post types
+* WP page naming conventions
 
 
+- SINGLE POST PAGES
 
-ARCHIVE (Make sure post type has this initialed)
-
-archive-{custom-post-type-name}.php                     ----  Created and used for pages that display all of a post type (ie. Projects)
+single.php                                                  ----  Created and used for individual 'post' pages
+single-{custom-post-type-name}.php                          ----  Created and used for individual pages for your custom post types
 
 
 
+- PAGES / TEMPLATES 
 
-PAGE TEMPLATES
+page-{page-slug}.php                                        ----  Will automatically be assigned to the page of the same name.
+// Template Name: Your Page Name Template                   ----  Add underneath get_header(); of any page php file and select in correspsonding page on WP to display for specific pages
 
-// Template Name: Your Page Name Template               ----  Add underneath get_header(); of any page php file and select in correspsonding page on WP to display for specific pages
+
+
+- ARCHIVE PAGES (Make sure post type has this initialed)
+
+archive-{custom-post-type-name}.php                         ----  Created and used for pages that display all of a post type (ie. Projects)
+
 
 
 

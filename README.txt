@@ -186,7 +186,7 @@ screenshot.png      -----   Provides the thumbnail for the theme in the WP Admin
 * WordPress page naming conventions
 
 
-- SINGLE POST PAGES
+- SINGLE POST & CUSTOM POST TYPE PAGES
 
 single.php                                                  ----  Created and used for individual 'post' pages
 single-{custom-post-type-name}.php                          ----  Created and used for individual pages for your custom post types

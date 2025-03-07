@@ -9,28 +9,19 @@ Web Developer
 
 
 
-
-
-
-
-
 Setting up custom theme development environment ------------------------------------------------------------
 
 
 
-* Download 'Local' to create local WP sites (localwp.com)
+1. Download 'Local' to create local WP sites (localwp.com)
 
-* This cloned github respository should be downloaded into the local wordpress site's 'wp-content/themes' directory
+2. Once site has been created, click on 'Go to site folder' button
 
-* Change the name of this directory from 'custom-wp-theme' to 'project-name-custom-theme' (optional)
+3. Clone this Github respository into the following location 'app/public/wp-content/themes' 
 
-* Main plugins used :
-     - Advanced Custom Fields
-     - All In One Migration (Importing / Exporting)
-     - WPCode (Header & Footer Insertions)
-     - Contact Form 7 (Form Submissions)
-     - Filter Everything (Filtration)
+4. Change the name of this folder from 'custom-wp-theme' to 'project-name-custom-theme' (optional)
 
+5. Open up folder in Text Editor
 
 
 
@@ -41,64 +32,65 @@ Setting up custom theme development environment --------------------------------
 
 
 
-
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////
 
 
 
 
-DOWNLOAD ALL NECESSARY PACKAGES & DEPENDENCIES (Compiling, Live Reloading)
-Make sure node.js is installed (node -v)
+Run following commands in theme directory to install all necessary packages & dependencies  ------------------------------------------------------------
 
+1. npm init (Creates package.json)
+2. npm i
 
-npm init -y
-npm i
-
-OR
+!! If error run !! 
 npm install laravel-mix --save-dev
 npm install webpack-livereload-plugin@1 --save-dev
 npm install -g sass
 
 
 
--
 
 
 
-LIVE SERVER SET UP
+Run following commands in theme directory to start up dev environment ------------------------------------------------------------
 
-* Install Live Server VS Code Extension by Ritwick Dey and activate
-* Install Live Server Web Extension (Should have the same icon)
-* Click 'Go Live' in bottom right corner (Should change to 'Port : 5500')
-* Copy the URL of the page that the browser opens up and paste into 'Live Server Address' field in the extension
-* Copy the URL of the local Wordpress site's home page (website-name.local) and paste into 'Actual Server Address' field in the extension
-* Run 'npx mix watch' and refresh browser
-* Test by changing colour of something 
-
-
-
-npx mix watch - Compile JS & SCSS files Automatically (Recommended)
+npx mix watch - Compile JS & SCSS files Automatically (Recommended!!!)
 npx mix - Will bring back styles.css & script.js files if deleted and compile manually
 
 
 
 
+
+
+LIVE SERVER SET UP  ------------------------------------------------------------
+
+* Install Live Server VS Code Extension by Ritwick Dey and activate
+* Install Live Server Web Extension (Should have the same icon)
+* Click 'Go Live' in bottom right corner of Text Editor (Should change to 'Port : {Port Number}')
+* Copy the URL of the page that the browser opens up and paste into 'Live Server Address' field in the browser extension
+* Copy the URL of the local Wordpress site's home page (website-name.local) and paste into 'Actual Server Address' field in the broswer extension
+* Run 'npx mix watch' if you haven't already and refresh browser.
+* Test by changing colour of something 
+
+
 - 
 
 
-
 PULLING LIVE VERSION TO EDIT LOCALLY
-- Import WP file exported from live version of site trying to edit (All In One Migration)
-- DELETE 'node_modules' directory and 'package-lock.json' file from project and run "npm i"
+
+- Import WP file exported from live version of site trying to edit (use 'All In One Migration' plug in to do this)
+- DELETE 'node_modules' directory and 'package-lock.json' file from project and run "npm i".
 
 
 
 
 
+* Recurring plugins used :
+     - Advanced Custom Fields
+     - All In One Migration (Importing / Exporting)
+     - WPCode (Header & Footer Insertions)
+     - Contact Form 7 (Form Submissions)
+     - Filter Everything (Filtration)
 
 
 

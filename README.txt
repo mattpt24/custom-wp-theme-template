@@ -59,7 +59,7 @@ Run following command (In custom theme root directory) to start up dev environme
 Set your custom theme active on your WordPress site  ------------------------------------------------------------
 
 1. Go to your sites WP admin 
-2. Go to Appearance > Themes and click activate on your custom theme block.
+2. Go to Appearance > Themes and click activate on custom theme block.
 
 
 
@@ -69,10 +69,11 @@ Live server set up  ------------------------------------------------------------
 
 1. Install Live Server VS Code Extension by Ritwick Dey and activate
 2. Install Live Server Web Extension (Should have the same icon)
-3. Click 'Go Live' in bottom right corner of Text Editor (Should change to 'Port : {Port Number}')
-4. Copy the URL of the page that the browser opens up and paste into 'Live Server Address' field in the browser extension
-5. Copy the URL of the local Wordpress site's home page (website-name.local) and paste into 'Actual Server Address' field in the browser extension
-6. Run 'npx mix watch' if you haven't already and refresh browser.
+3. When opened Live Server browser extension will have 2 fields to fill in (Actual Server Address & Live Server Address)
+3. Actual Server Address - URl of your local WordPress site (e.g http://my-site.local/)
+4. Live Server Address - URL of the page that opens up when you click 'Go Live' in the bottom right of your text editor (e.g. http://127.0.0.1:5500)
+5. Click 'Apply'
+6. Run 'npx mix watch' if you haven't already and refresh page in browser.
 7. Test by changing colour of something 
 
 

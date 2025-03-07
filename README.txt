@@ -70,11 +70,11 @@ Live server set up  ------------------------------------------------------------
 1. Install Live Server VS Code Extension by Ritwick Dey and activate
 2. Install Live Server Web Extension (Should have the same icon)
 3. When opened Live Server browser extension will have 2 fields to fill in (Actual Server Address & Live Server Address)
-3. Actual Server Address - URl of your local WordPress site (e.g http://my-site.local/)
-4. Live Server Address - URL of the page that opens up when you click 'Go Live' in the bottom right of your text editor (e.g. http://127.0.0.1:5500)
-5. Click 'Apply'
-6. Run 'npx mix watch' if you haven't already and refresh page in browser.
-7. Test by changing colour of something 
+   - Actual Server Address - URL of your local WordPress site (e.g http://my-site.local)
+   - Live Server Address - URL of the page that opens up when you click 'Go Live' in the bottom right of your text editor (e.g. http://127.0.0.1:5500)
+4. Click 'Apply'
+5. Run 'npx mix watch' if you haven't already and refresh page in browser.
+6. Test by changing colour of something 
 
 
 
@@ -391,6 +391,8 @@ function new_section($wp_customize) {
     add_action('customize_register', 'new_section');
 
 ?>
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

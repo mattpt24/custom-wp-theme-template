@@ -35,7 +35,7 @@ Setting up custom WordPress theme development environment ----------------------
 Run following commands in theme directory to install all necessary packages & dependencies  ------------------------------------------------------------
 
 
-1. npm init (Creates package.json)
+1. npm init or npm init -y (Creates package.json)
 2. npm i
 3. npm audit fix --force (Fixes any packages that are are outdated)
 

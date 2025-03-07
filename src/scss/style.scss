@@ -18,10 +18,9 @@ Version: 1.0
 // LAYOUT
 @import "./layout/page";
 
-// HOME PAGE
-@import "./pages/home/hero";
-
 // PAGES
+@import "./pages/home/greeting"; // DELETE 
+@import "./pages/home/home";
 @import "./pages/services/services";
 @import './pages/services/single-service';
 @import "./pages/other/404";

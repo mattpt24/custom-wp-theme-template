@@ -1,18 +1,14 @@
-$clr-purple: #6128D0;
-$clr-purple-faded: #6028d0cc;
-$clr-purple0-darker: #5024a6;
+// COLOR SCHEME 
+$clr-primary: #222;
+$clr-primary-lighter: #373737;
+$clr-primary-darker: #0d0d0d;
+$clr-primary-faded: #222222c7;
 
+$clr-secondary: teal;
+$clr-secondary-lighter: rgb(7, 155, 155);
+$clr-secondary-darker: rgb(4, 97, 97);
+$clr-secondary-faded: rgba(0, 128, 128, 0.804);
 
-$clr-pink:#FB3C74;
-$clr-pink-faded:#FB3C74;
-$clr-pink-darker:#d63666;
-
-$clr-blue: #5AC9DE;
-$clr-blue-faded: #5AC9DE;
-$clr-blue-darker: #4da9bb;
-
-$clr-green-faded: #B4F351;
-$clr-green-darker: #94c742;
 
 
 // FONT SIZES
@@ -22,6 +18,7 @@ $fs-lrge: 2rem;
 $fs-xlrge: 2.5rem;
 $page-title: 3.5rem;
 $hero-title: 4.5rem;
+
 
 
 // FONT WEIGHT
@@ -37,7 +34,7 @@ $fw-5: 900;
 $ff-main:'Inter Tight', sans-serif;
 
 
-// SIZES
+// RESPONSIVE BREAKPOINTS
 $mobile: 560px;
 $tablet: 1360px;
 $laptop: 1800px;

@@ -1,5 +1,5 @@
 This README contains all the information for setting up a working enviroment ready for 
-custom WordPress theme development as well as a help guide for the most useful WordPress functions and practices.
+custom WordPress theme development as well as a help guide for not all but the most useful WordPress functions and practices.
 
 Matt Persell-Thompson
 Web Developer
@@ -161,6 +161,8 @@ CUSTOM 'CUSTOMISE' CONTROLS                        ------   <?php echo get_theme
 
 POST SHORTCODE                                     ------   <?php echo do_shortcode('[your_shortcode]')?> 
 
+SEARCH FORM                                        ------   <?php get_search_form(); ?>
+
 
 
 
@@ -171,19 +173,23 @@ POST SHORTCODE                                     ------   <?php echo do_shortc
 * WordPress File Uses
 
 
-front-page.php      -----   Front page of the website. Anything on this page will be the first thing people see
-
-functions.php       -----   Used for enqueing scripts / stylesheets aswell as adding theme support for certain features and creating 'Customise' controls
-
 header.php          -----   Stores <?php wp_head();?>, any addtional <head> contents as well as global header elements like <nav>
 
 footer.php          -----   Stores <?php wp_footer();?>, any addtional scripts, as well as global footer elements like <footer>
 
+functions.php       -----   Used for enqueing scripts / stylesheets aswell as adding theme support for certain features and creating 'Customise' controls
+
+front-page.php      -----   Front page of the website. Anything on this page will be the first thing people see
+
+single.php          -----   Used for individual 'post' pages (NOT custom post type). 
+
 page.php            -----   Content displayed on here will be applied to any pages not assigned a specific page-{page-slug}.php or page template
 
-screenshot.png      -----   Provides the thumbnail for the theme in the WP Admin Apperance > Theme page
+search.php          -----   Page used for search query functionality and displaying results
 
 404.php             -----   404 Page (Pages searched that don't exist or were deleted)
+
+screenshot.png      -----   Provides the thumbnail for the theme in the WP Admin Apperance > Theme page
 
 
 
@@ -197,21 +203,20 @@ screenshot.png      -----   Provides the thumbnail for the theme in the WP Admin
 
 - SINGLE POST & CUSTOM POST TYPE PAGES
 
-single.php                                                  ----  Created and used for individual 'post' pages
-single-{custom-post-type-name}.php                          ----  Created and used for individual pages for your custom post types
+single-{custom-post-type-slug}.php                           ----  Used for individual pages for your custom post types
 
 
 
 - PAGES / TEMPLATES 
 
-page-{page-slug}.php                                        ----  Will automatically be assigned to the page of the same name.
-// Template Name: Your Page Name Template                   ----  Add underneath get_header(); of any page php file and select in correspsonding page on WP to display for specific pages
+page-{page-slug}.php                                         ----  Will automatically be assigned to the page of the same name.
+// Template Name: Your Page Name Template                    ----  Add underneath get_header(); of any page php file and select in correspsonding page on WP to display for specific pages
 
 
 
 - ARCHIVE PAGES (Make sure post type has this initialed)
 
-archive-{custom-post-type-name}.php                         ----  Created and used for pages that display all of a post type (ie. Projects)
+archive-{custom-post-type-slug}.php                          ----  Used for pages that display all of a post type (ie. Projects)
 
 
 
@@ -224,12 +229,12 @@ archive-{custom-post-type-name}.php                         ----  Created and us
 
 
 
-* Wordpress Functions Examples: 
+* Wordpress Function Examples: 
 
 
  
 
-DISPLAY MENU 
+DISPLAY MENU
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////

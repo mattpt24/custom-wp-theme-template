@@ -48,11 +48,9 @@ Run following commands in theme directory to install all necessary packages & de
 
 
 
-Run following commands in theme directory to start up dev environment ------------------------------------------------------------
+Run following command (In custom theme root directory) to start up dev environment ------------------------------------------------------------
 
-* npx mix watch   - Compile JS & SCSS files Automatically (You'll need this!!!)
-* npx mix         - Will bring back styles.css & script.js files if deleted and compile manually
-
+* npx mix watch   - Watches and compiles JS & SCSS files automatically 
 
 
 

@@ -57,6 +57,16 @@ Run following commands in theme directory to start up dev environment ----------
 
 
 
+
+Set your custom theme active on your WordPress site  ------------------------------------------------------------
+
+1. Go to your sites WP admin 
+2. Go to Appearance > Themes and click activate on your custom theme block.
+
+
+
+
+
 Live server set up  ------------------------------------------------------------
 
 1. Install Live Server VS Code Extension by Ritwick Dey and activate

@@ -1,9 +1,7 @@
-
-
 This README contains all the information for setting up a working enviroment ready for 
 custom WordPress theme development as well as a help guide for the most used WordPress functions and practices
 
-Matthew Persell-Thompson
+Matt Persell-Thompson
 Web Developer
 -------------
 
@@ -16,7 +14,7 @@ Web Developer
 
 
 
-Setting up custom theme development enviroment ------------------------------------------------------------
+Setting up custom theme development environment ------------------------------------------------------------
 
 
 
@@ -26,7 +24,12 @@ Setting up custom theme development enviroment ---------------------------------
 
 * Change the name of this directory from 'custom-wp-theme' to 'project-name-custom-theme' (optional)
 
-* Main plugins used - ACF , All In One Migration, Header & Footer
+* Main plugins used :
+     - Advanced Custom Fields
+     - All In One Migration (Importing / Exporting)
+     - WPCode (Header & Footer Insertions)
+     - Contact Form 7 (Form Submissions)
+     - Filter Everything (Filtration)
 
 
 
@@ -106,36 +109,30 @@ PULLING LIVE VERSION TO EDIT LOCALLY
 
 
 
+WordPress Theme Development Cheat Sheet  ----------------------------
 
 
 
 
 
+PAGE / POST TITLE                                  ------   <?php echo the_title();?>
 
+CONTENT                                            ------   <?php echo the_content();?>
 
+EXCERPT                                            ------   <?php echo the_excerpt();?>
 
+IMAGES FROM 'IMAGES' FOLDER                        ------   <?php echo get_theme_file_uri('assets/images/picture.png');?>
 
+LINK TO SPECIFIC PAGE                              ------   <?php echo site_url('/page-name');?>
 
+ACF CUSTOM FIELDS                                  ------   <?php echo the_field('name_of_custom_field')?>
 
-WordPress Theme Development Help Guide  ----------------------------
+ACF CUSTOM FIELDS FROM ANOTHER PAGE                ------   <?php echo the_field('name_of_custom_field', 20)?>
 
+CUSTOM 'CUSTOMISE' CONTROLS                        ------   <?php echo get_theme_mod('name-of-custom-theme-mod')?> 
 
+POST SHORTCODE                                     ------   <?php echo do_shortcode('[your_shortcode]')?> 
 
-
-
-TITLE                            ------   <?php echo the_title();?>
-
-EXCERPT                          ------   <?php echo the_excerpt();?>
-
-CONTENT                          ------   <?php echo get_the_content();?>
-
-IMAGES FROM 'IMAGES' FOLDER      ------   <?php echo get_theme_file_uri('images/picture.png');?>
-
-LINK TO SPECIFIC PAGE            ------   <?php echo site_url('/page-name');?>
-
-ACF CUSTOM FIELDS                ------   <?php echo the_field('name_of_custom_field')?>
-
-CUSTOM 'CUSTOMISE' CONTROLS      ------   <?php echo get_theme_mod('name-of-custom-theme-mod')?> 
 
 
 
@@ -143,15 +140,22 @@ CUSTOM 'CUSTOMISE' CONTROLS      ------   <?php echo get_theme_mod('name-of-cust
 
 SINGLE POST PAGES
 
-single.php                                  -----  Used for individual pages for standard posts
+single.php                                              -----  Created and used for individual 'post' pages
 
-single-{custom-post-type-name}.php            -----  Used for individual pages for custom post types
+single-{custom-post-type-name}.php                      -----  Created and used for individual pages for your custom post types
+
+
+
+ARCHIVE (Make sure post type has this initialed)
+
+archive-{custom-post-type-name}.php                     ----  Created and used for pages that display all of a post type (ie. Projects)
+
 
 
 
 PAGE TEMPLATES
 
-// Template Name: Your Page Name Template   -----  Add underneath get_header(); of any page php file and select in correspsonding page on WP to display for specific pages
+// Template Name: Your Page Name Template               ----  Add underneath get_header(); of any page php file and select in correspsonding page on WP to display for specific pages
 
 
 
@@ -161,7 +165,7 @@ PAGE TEMPLATES
 
  
 
-MENUS 
+DISPLAY MENU 
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -189,11 +193,7 @@ MENUS
 
 
 
-
-
-
-
-THE WORDPRESS LOOP 
+THE WORDPRESS LOOP (PULL IN POSTS / CUSTOM POST TYPES )
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -232,10 +232,6 @@ wp_reset_query();
 
 
 
-
-
-
-
 CUSTOM POST TYPES 
 
 
@@ -251,6 +247,9 @@ CUSTOM POST TYPES
 4. Make sure there is NO white space in this file as it breaks WP when live
 
 * USE ACF plugin by 'WP Engine' to assign your custom post type custom fields
+
+
+!!! Alternatively you can just create Custom Post Types in ACF itself !!!
 
 
 
@@ -292,12 +291,7 @@ add_action('init', 'custom_post_types');
 
 
 
-
-
-
-
-
-CREATING NEW CUSTOM CUSTOMISE CONTROL
+CREATING NEW CUSTOM 'CUSTOMISE' CONTROL FOR GLOBAL FIELDS (ie Company Contact Details)
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -336,12 +330,6 @@ function new_section($wp_customize) {
 
 ?>
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-
 
 
 
@@ -403,9 +391,6 @@ PULL IN NAMES OF CHILD PAGES TO SPECIFIC PARENT EXCEPT THE PAGE ITS ON
 
 
 
-
-
-
 SHOW THE PREVIOUS & NEXT POST
 
 
@@ -455,7 +440,6 @@ PAGES
 
 
 
-
 SINGLE POST TYPES 
 
 <?php if (is_single(22)){?>
@@ -464,6 +448,14 @@ SINGLE POST TYPES
 
 
 
+ARCHIVE PAGES 
+
+
+<?php if ( is_post_type_archive( 'project' ) ) { ?>
+    <h1>This only appears on a single post type with an id of 22</h1>
+<?php } ?>
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -473,111 +465,42 @@ SINGLE POST TYPES
 
 
 
-META SLIDER CAROUSEL WP PLUGIN 
+
+
+
+SETTING UP 'FILTER EVERYTHING' PLUG IN. 
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-** SET UP ACF FIELD WHERE YOU WANT THE CAROUSEL TO APPEAR CALLED 'Image Carousel (image_carousel)' **
-** ENTER THE NUMBER OF THE CAROUSEL INTO THE FIELD TO DISPLAY SPECIFIC CAROUSEL **
+
+* Without the PRO version Filter Everything can only be implemented on archive-{post-type}.php pages.
+* Make sure your post type has Archives initialised either with 'has_archive => true' on in any plug ins set up with.
+* Make sure you post type has your filters created and assigned to them using ACF.
+* Once archive page has been created and filters have been configured post [fe_widget] shortcode into that file. 
+* Use the following function (modified by Filter Everything) to pull in your custom post type you wish to be filterable
 
 
 
-
-HTML / PHP ----
-<div class="project-modal__carousel"><?php echo do_shortcode( '[metaslider id="'.get_field('image_carousel').'"]' ); ?></div>
-
-
-
-
-SCSS ----
-
-    .project-modal__carousel {
-        width: 42vw;
-        margin: 0 auto;
-
-
-        // DOTS
-        ol {
-            li {
-                a {
-                    background: white!important;
+        <?php
+        if (have_posts()) :
+            while (have_posts()) :
+                the_post();
+                if (get_post_type() === 'testimonial') { 
+                    ?>
+                    <div class="testimonial">
+                        <h1><a class="txt-black" href="<?php echo the_permalink();?>"><?php the_title(); ?></a></h1>
+                        <!-- <p><?php echo esc_html(get_field('testimonial_content')); ?></p> -->
+                    </div>
+                    <?php
                 }
-            }
-        }
+            endwhile;
+        else :
+            echo '<p>No testimonials found.</p>';
+        endif;
+        ?>
 
-        .flex-active {
-            background: red!important;
-            border-color: red!important;
-        }
-
-
-
-        // NEXT / PREVIOUS BUTTONS
-        .flex-prev,
-        .flex-next {
-            transition: all .3s ease;
-            background: red!important;
-            border-radius: 100%;
-            position: relative;
-            opacity: .5!important;
-            &:hover {
-                transition: all .3s ease;
-                opacity: 1!important;
-                cursor: pointer;
-            }
-        }
-
-        .flex-prev {
-            &::after {
-                content: "";
-                height: 8px;
-                width: 8px;
-                background: none;
-                border-left: solid 2px white;
-                border-bottom: solid 2px white;
-                position: absolute;
-                top: 58%;
-                left: 40%;
-                transform: rotate(45deg) translate(-50%,-50%);
-            }
-        }
-
-
-        .flex-next {
-            &::after {
-                content: "";
-                height: 8px;
-                width: 8px;
-                background: none;
-                border-right: solid 2px white;
-                border-bottom: solid 2px white;
-                position: absolute;
-                top: 35%;
-                left: 50%;
-
-                transform: rotate(-45deg) translate(-50%,-50%);
-            }
-        }
-
-
-
-        img {
-            height: 500px;
-        }
-
-        @media screen and (max-width: $tablet) {
-            width: 85vw;
-        }
-         @media screen and (max-width: $mobile) {
-            width: 90vw;
-        }
-    }
-
-}
-
-// END OF IMAGE CAROUSEL STYLES
-
+    
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-

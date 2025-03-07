@@ -1,5 +1,5 @@
 This README contains all the information for setting up a working enviroment ready for 
-custom WordPress theme development as well as a help guide for the most useful WordPress functions and practices
+custom WordPress theme development as well as a help guide for the most useful WordPress functions and practices.
 
 Matt Persell-Thompson
 Web Developer
@@ -119,12 +119,13 @@ Things to note   ------------------------------------------------------------
 
 
 
-
 WordPress Theme Development Cheat Sheet  ----------------------------
 
 
 
-* WP Display Functions
+
+
+* WordPress Display Functions
 
 
 HEADER CONTENTS                                    ------   <?php echo get_header();?>
@@ -156,7 +157,33 @@ POST SHORTCODE                                     ------   <?php echo do_shortc
 
 
 
-* WP page naming conventions
+
+
+* WordPress File Uses
+
+
+front-page.php      -----   Front page of the website. Anything on this page will be the first thing people see
+
+functions.php       -----   Used for enqueing scripts / stylesheets aswell as adding theme support for certain features and creating 'Customise' controls
+
+header.php          -----   Stores <?php wp_head();?>, any addtional <head> contents as well as global header elements like <nav>
+
+footer.php          -----   Stores <?php wp_footer();?>, any addtional scripts, as well as global footer elements like <footer>
+
+page.php            -----   Content displayed on here will be applied to any pages not assigned a specific page-{page-slug}.php or page template
+
+screenshot.png      -----   Provides the thumbnail for the theme in the WP Admin Apperance > Theme page
+
+404.php             -----   404 Page (Pages searched that don't exist or were deleted)
+
+
+
+
+
+
+
+
+* WordPress page naming conventions
 
 
 - SINGLE POST PAGES
@@ -184,6 +211,13 @@ archive-{custom-post-type-name}.php                         ----  Created and us
 
 
 
+
+
+
+
+* Wordpress Functions Examples: 
+
+
  
 
 DISPLAY MENU 
@@ -203,8 +237,6 @@ DISPLAY MENU
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 
 
@@ -253,7 +285,7 @@ wp_reset_query();
 
 
 
-CUSTOM POST TYPES 
+MANUALLY CREATING CUSTOM POST TYPES 
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -270,7 +302,7 @@ CUSTOM POST TYPES
 * USE ACF plugin by 'WP Engine' to assign your custom post type custom fields
 
 
-!!! Alternatively you can just create Custom Post Types in ACF itself !!!
+!!! Alternatively you can just create Custom Post Types in ACF or alternative plugins !!!
 
 
 
@@ -445,9 +477,7 @@ SHOW THE PREVIOUS & NEXT POST
 
 
 
-
 MAKE CONTENT ONLY APPEAR ON CERTAIN PAGES
-
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -478,7 +508,6 @@ ARCHIVE PAGES
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 
 

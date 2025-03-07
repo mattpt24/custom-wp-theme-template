@@ -1,5 +1,5 @@
 This README contains all the information for setting up a working enviroment ready for 
-custom WordPress theme development as well as a help guide for the most used WordPress functions and practices
+custom WordPress theme development as well as a help guide for the most useful WordPress functions and practices
 
 Matt Persell-Thompson
 Web Developer
@@ -62,27 +62,32 @@ npx mix - Will bring back styles.css & script.js files if deleted and compile ma
 
 
 
-LIVE SERVER SET UP  ------------------------------------------------------------
+Live server set up  ------------------------------------------------------------
 
-* Install Live Server VS Code Extension by Ritwick Dey and activate
-* Install Live Server Web Extension (Should have the same icon)
-* Click 'Go Live' in bottom right corner of Text Editor (Should change to 'Port : {Port Number}')
-* Copy the URL of the page that the browser opens up and paste into 'Live Server Address' field in the browser extension
-* Copy the URL of the local Wordpress site's home page (website-name.local) and paste into 'Actual Server Address' field in the broswer extension
-* Run 'npx mix watch' if you haven't already and refresh browser.
-* Test by changing colour of something 
+1. Install Live Server VS Code Extension by Ritwick Dey and activate
+2. Install Live Server Web Extension (Should have the same icon)
+3. Click 'Go Live' in bottom right corner of Text Editor (Should change to 'Port : {Port Number}')
+4. Copy the URL of the page that the browser opens up and paste into 'Live Server Address' field in the browser extension
+5. Copy the URL of the local Wordpress site's home page (website-name.local) and paste into 'Actual Server Address' field in the browser extension
+6. Run 'npx mix watch' if you haven't already and refresh browser.
+7. Test by changing colour of something 
 
 
 - 
 
 
-PULLING LIVE VERSION TO EDIT LOCALLY
+Pulling live WP site to make changes locally ------------------------------------------------------------
 
-- Import WP file exported from live version of site trying to edit (use 'All In One Migration' plug in to do this)
-- DELETE 'node_modules' directory and 'package-lock.json' file from project and run "npm i".
+1. Use 'All In One Migration' plugin to export the live site to a .wordpress file. 
+2. Create a new site locally and import this file also using the 'All In One Migration' plugin.
+3. DELETE 'node_modules' directory and 'package-lock.json' file from project and run "npm i".
 
 
 
+
+
+
+Things to note   ------------------------------------------------------------
 
 
 * Recurring plugins used :
@@ -91,6 +96,16 @@ PULLING LIVE VERSION TO EDIT LOCALLY
      - WPCode (Header & Footer Insertions)
      - Contact Form 7 (Form Submissions)
      - Filter Everything (Filtration)
+
+
+
+* The 'src' directory holds the 'js' and 'scss' folders which house the current and any new .js and .scss files. Changes made here wont be visible unless Laravel Mix is running (npx mix watch)
+
+* Creating new .js and .scss files: 
+   - When creating .scss files make sure to import in the style.scss file    (eg. @import "./components/buttons";)
+   - When creating .js files make sure to import in script.js file           (eg. import "./article-filtration";)
+
+
 
 
 

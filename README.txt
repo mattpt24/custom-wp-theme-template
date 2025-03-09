@@ -147,6 +147,8 @@ PAGE / POST TITLE                                  ------   <?php echo the_title
 
 CONTENT                                            ------   <?php echo the_content();?>
 
+SINGLE POST TYPE PAGE LINK                         ------   <?php echo the_permalink();?>
+
 EXCERPT                                            ------   <?php echo the_excerpt();?>
 
 IMAGES FROM 'IMAGES' FOLDER                        ------   <?php echo get_theme_file_uri('assets/images/picture.png');?>

@@ -118,6 +118,18 @@ Things to note   ------------------------------------------------------------
 
 
 
+* If browser blocks the downloading of exported .wpress files locate the .htaccess file and add the following code
+
+php_value upload_max_filesize 500M
+php_value post_max_size 500M
+php_value memory_limit 512M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+
+
+
+
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

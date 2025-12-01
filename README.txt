@@ -1,3 +1,6 @@
+
+DEPRECATED
+
 This README contains all the information for setting up a working enviroment ready for 
 custom WordPress theme development as well as a help guide for not all but the most useful WordPress functions and practices.
 
